@@ -1,24 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Scala > Java</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Introduction to Scala">
+		<meta name="author" content="Frode Nerbråten">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<!--<link rel="stylesheet" href="lib/css/zenburn.css">-->
+        <link rel="stylesheet" href="lib/css/github.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -38,6 +39,199 @@
 			<div class="slides">
 
 				<section>
+					<h1>Scala > Java</h1>
+                    <h3>Introduction to Scala</h3>
+					<p>
+						<small>
+                            Frode Nerbråten / <a href="http://twitter.com/froden">@froden</a><br>
+                            Scala & JVM tech lead
+                        </small>
+					</p>
+                    <a class="image" href="http://bekk.no" target="_blank">
+                        <img src="images/bekk-logo-small.png" alt="Bekk">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>SCALA</h2>
+                    <p><em>A modern, statically typed, object-functional programming language on the JVM</em></p>
+                    <img src="images/scala_button.jpg" alt="Scala">
+                </section>
+
+                <section>
+                    <h2>Why Scala?</h2>
+                </section>
+
+                <section>
+                    <h2>Elegant concise syntax</h2>
+                    <pre class="fragment"><code class="scala" contenteditable>  case class Person(name: String, age: Int)</code></pre>
+                    <pre class="fragment"><code class="scala" contenteditable>  val person = Person("Frode", 33)
+  person.name
+
+  //res0: String = Frode</code></pre>
+                    <pre class="fragment"><code class="scala" contenteditable>  val people = List(Person("Frode", 33),
+                    Person("Bob", 25),
+                    Person("Alice", 27))
+  val young = people.filter(_.age < 30)
+
+  young map (_.name)
+
+  //res1: List[String] = List(Bob, Alice)</code></pre>
+                </section>
+
+                <section>
+                    <h2>High performance</h2>
+                    <ul>
+                        <li>Compiled</li>
+                        <li>Runs on the JVM</li>
+                        <li>Comparable to Java</li>
+                        <li>... or even better</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Object Oriented</h2>
+                    <pre><code class="scala">  trait Programming {
+    def makeSoftware(spec: String): Software = ...
+  }
+
+  trait Consulting {
+    def consult(problem: String): Advice = ...
+  }
+
+  abstract class Employee
+
+  class Developer extends Employee with Consulting with Programming</code></pre>
+                </section>
+
+                <section>
+                    <h2>Functional</h2>
+                    <div class="fragment">
+                        <h4 style="text-align: left; padding-left: 50px;">first class functions</h4>
+                        <pre><code class="scala">  val product = (num1: Int, num2: Int) => num1 * num2
+
+  List(1, 2, 3, 4).fold(1)(product)
+
+  //res0: Int = 24</code></pre>
+                    </div>
+                    <div class="fragment">
+                        <h4 style="text-align: left; padding-left: 50px;">partial application</h4>
+                        <pre><code class="scala">  val timesTwo: Int => Int = product(2, _)
+
+  List(1, 2, 3, 4).map(timesTwo)
+
+  //res1: List[Int] = List(2, 4, 6, 8)</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Functional II</h2>
+                    <h4 style="text-align: left; padding-left: 50px;">pattern matching</h4>
+                    <pre><code class="scala">  val people = List(Person("Frode", 33),
+                    Person("Frode", 25),
+                    Person("Alice", 27))
+
+  for (person <- people) {
+    person match {
+      case Person("Frode", age) if (age > 30) => println("Found me")
+      case Person("Frode", _) => println("Found some other Frode")
+      case Person(name, age) => println(s"Found ${name} age ${age}")
+    }
+  }</code></pre>
+                </section>
+
+                <section>
+                    <h2>Functional III</h2>
+                    <h4 style="text-align: left; padding-left: 50px;">monadic syntax</h4>
+                    <pre><code class="scala">  val number1 = Some(1)
+  val number2: Option[Int] = None
+
+  val res = for {
+    n1 <- number1
+    n2 <- number2
+  } yield n1 + n2
+
+  //res: Option[Int] = None</code></pre>
+                </section>
+
+                <section>
+                    <h2>Java interop</h2>
+                    <ul>
+                        <li>Use existing great Java frameworks</li>
+                        <li>Write Java compatible APIs</li>
+                        <li>Deploy on existing Java infrastructure</li>
+                    </ul>
+                    <pre><code class="scala">  val s = "Scala"
+
+  //s: java.lang.String = Scala</code></pre>
+
+                </section>
+
+                <section>
+                    <h2>Community</h2>
+                    <a class="image" href="http://scaladays.org" target="_blank">
+                        <img height="100" src="images/scaladays.png" alt="scaladays.org">
+                    </a>
+                    <a class="image" href="http://twitter.com" target="_blank">
+                        <img height="100" src="images/twitter.jpg" alt="twitter.com">
+                    </a>
+                    <a class="image" href="http://akka.io" target="_blank">
+                        <img height="100" src="images/akka.png" alt="akka.io">
+                    </a>
+                    <a class="image" href="http://github.com" target="_blank">
+                        <img height="100" src="images/github.png" alt="github.com">
+                    </a>
+                    <a class="image" href="http://playframework.com" target="_blank">
+                        <img height="100" src="images/play.png" alt="playframework.com">
+                    </a>
+                    <a class="image" href="http://typesafe.com" target="_blank">
+                        <img height="100" src="images/typesafe.png" alt="typesafe.com">
+                    </a>
+                    <a class="image" href="http://scala-lang.org" target="_blank">
+                        <img height="100" src="images/scala.png" alt="scala-lang.org">
+                    </a>
+                    <a class="image" href="http://liftweb.net/" target="_blank">
+                        <img height="100" src="images/lift.png" alt="liftweb.net">
+                    </a>
+                    <a class="image" href="http://2013.flatmap.no/" target="_blank">
+                        <img height="100" src="images/flatmap.png" alt="2013.flatmap.no">
+                    </a>
+                    <a class="image" href="http://stackoverflow.com/" target="_blank">
+                        <img height="100" src="images/stackoverflow.png" alt="stackoverflow.com">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>LinkedIn uses Scala</h2>
+                    <a class="image" href="http://linkedin.com/" target="_blank">
+                        <img src="images/linkedin.png" alt="linkedin.com">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>BEKK uses Scala</h2>
+                    <a class="image" href="http://bekk.no/" target="_blank">
+                        <img src="images/bekk-logo-stor.png" alt="bekk.no">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>Twitter uses Scala</h2>
+                    <a class="image" href="http://twitter.com/" target="_blank">
+                        <img src="images/twitter-birds.jpg" alt="twitter.com">
+                    </a>
+                </section>
+
+                <section>
+                    <p style="font-size: 1.5em;">"<strong>Basically</strong>, it's the future"</p>
+                    <p><a href="http://twitter.com/al3x">@al3x</a></p>
+                </section>
+
+                <section>
+                    <img src="images/demotime.jpg" alt="demo">
+                </section>
+
+                <section>
 					<h1>Reveal.js</h1>
 					<h3>HTML Presentations Made Easy</h3>
 					<p>
@@ -248,6 +442,20 @@ function linkify( selector ) {
 				</section>
 
 				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="scala" contenteditable>
+  class Person(name: String) {
+    def sayHi: String = s"Hi! I'm ${name}"
+  }
+
+  object Main extends App {
+    println("frode er kul")
+  }
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>				
+
+				<section>
 					<h2>Intergalactic Interconnections</h2>
 					<p>
 						You can link between slides internally,
@@ -356,15 +564,15 @@ function linkify( selector ) {
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				theme: "beige", //Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.pack.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }

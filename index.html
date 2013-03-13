@@ -105,7 +105,7 @@
   //res1: List[String] = List(Bob, Alice)</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Sytaxen i Scala gir samme uttrykkskraft som dynamiske språk som Ruby</li>
+                            <li>Sytaxen i Scala gir samme uttrykkskraft som dynamiske språk som Ruby (REPL)</li>
                             <li>Men med type safety i tillegg!</li>
                             <li>====</li>
                             <li>La oss se på hvordan man definerer en klasse</li>
@@ -199,6 +199,11 @@
                             <li>Første bud er at Scala støtter funksjoner som first class citisens</li>
                             <li>Støtter både anonyme funksjoner og lexical closures</li>
                             <li>fold tar inn en funksjon som tar 2 int som argument</li>
+                            <li>1 ganger første tallet, resultatet ganger neste tallet osv => svar 24</li>
+                            <li>====</li>
+                            <li>Hva om vi bare ønsker å gange alle tallene i listen med f.eks. 2</li>
+                            <li>Ikke noe problem. Vi partially applyer 2 som første argument og får en funksjon som tar 1 int som arg</li>
+                            <li>Denn kan vi så mappe over listen</li>
                         </ul>
                     </aside>
                 </section>
@@ -217,6 +222,18 @@
       case Person(name, age) => println(s"Found ${name} age ${age}")
     }
   }</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>Scala støtter pattern matching som dere kjenner fra Haskell</li>
+                            <li>case classes som Person gjør det mulig å pattern matche på alle feltene i klassen</li>
+                            <li>Jeg har en listen med 3 personer</li>
+                            <li>Itererer over denne og pattern matcher på hvert element</li>
+                            <li>Hvis en person som heter frode har alder over 30 antar jeg at det er meg</li>
+                            <li>Hvis ikke er det nok en annen frode</li>
+                            <li>Til slutt alle andre treff</li>
+                            <li>underscore er wildcard</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -231,6 +248,15 @@
   } yield n1 + n2
 
   //res: Option[Int] = None</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>Scalas for syntax kan brukes enten til bare iterering (avansert for-loop) uten yield</li>
+                            <li>Eller som syntax sukker for monader når man bruker yield</li>
+                            <li>Dette er tilsvarende do-notation i Haskell</li>
+                            <li>Option er scalas svar på Maybe monaden</li>
+                            <li>Som vi ser kan kombinere to option-verdier uten å tenke på om innholdet er Some eller None</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -243,7 +269,16 @@
                     <pre><code class="scala">  val s = "Scala"
 
   //s: java.lang.String = Scala</code></pre>
-
+                    <aside class="notes">
+                        <ul>
+                            <li>Man kan bruke alle eksisterende Java-biblioteker og verktøy med Scala (Spring, Hibernate, Maven, osv..)</li>
+                            <li>Man kan også skrive scalakode som kan brukes fra Javakode. Eksempler Akka og Play.</li>
+                            <li>Men man må huske at ikke all Scalakode vil fungere fra Java.</li>
+                            <li>For en Java virtual machine så er Scala-programmer bare vanlig bytekode</li>
+                            <li>Man kan derfor deploye sine Scala-programmer på samme Java-infrastruktur som man allerede har</li>
+                            <li>Scala har for eksempel ikke en egen String-type, men bruker standard Java String med en del tilleggsfunksjonalitet</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -281,6 +316,17 @@
                     <a class="image" href="http://www.meetup.com/scalabin/" target="_blank">
                         <img height="100" src="images/meetup.jpg" alt="meetup.com/scalabin">
                     </a>
+                    <aside class="notes">
+                        <ul>
+                            <li>Scala har et stort community med mange engasjerte og meget dyktige folk</li>
+                            <li>Det finnes mange bra rammeverk skrevet i og for Scala</li>
+                            <li>AKKA - actor framwork for concorruent systemer</li>
+                            <li>Play2 - Scalas svar på Rails</li>
+                            <li>Lift - Et view first basert web-rammeverk</li>
+                            <li>Etter hvert meget god IDE-støtte både for IntelliJ og Eclipse</li>
+                            <li>Man finner som regel svar på det man lurer på ved å google</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -288,6 +334,12 @@
                     <a class="image" href="http://linkedin.com/" target="_blank">
                         <img src="images/linkedin.png" alt="linkedin.com">
                     </a>
+                    <aside class="notes">
+                        <ul>
+                            <li>Men er det noen som bruker Scala i produksjon?</li>
+                            <li>Jada, LinkedIn bruker det</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -295,6 +347,13 @@
                     <a class="image" href="http://bekk.no/" target="_blank">
                         <img src="images/bekk-logo-stor.png" alt="bekk.no">
                     </a>
+                    <aside class="notes">
+                        <ul>
+                            <li>Bekk har for tiden ett rent Scala-prosjekt</li>
+                            <li>Flere som bruker det til mindre ting</li>
+                            <li>Flere vurderer å ta det i bruk</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -302,11 +361,23 @@
                     <a class="image" href="http://twitter.com/" target="_blank">
                         <img src="images/twitter-birds.jpg" alt="twitter.com">
                     </a>
+                    <aside class="notes">
+                        <ul>
+                            <li>Twitter fikk problemer med ytelse i sin Ruby-basete back-end</li>
+                            <li>Begynte å skrive om kritiske deler til Scala i stedet</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <p style="font-size: 1.5em;"><q cite="http://twitter.com/al3x"><strong>Basically</strong>, it's the future</q></p>
                     <p><a href="http://twitter.com/al3x">@al3x</a></p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Basically its the future</li>
+                            <li>Alex fra twitter er enig med meg at Scala er verdt å satse på</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>

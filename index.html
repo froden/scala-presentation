@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
 	<head>
 		<meta charset="utf-8">
@@ -50,22 +50,48 @@
                     <a class="image" href="http://bekk.no" target="_blank">
                         <img src="images/bekk-logo-small.png" alt="Bekk">
                     </a>
+                    <aside class="notes">
+                        <ul>
+                            <li>Velkommen! Hyggelig at dere hadde lyst til å komme og høre om Scala</li>
+                            <li>Frode Nerbråten, jobbet i Bekk i snart 8 år</li>
+                            <li>Fagleder for Scala og JVM, som er Bekks kompetansegruppe for alternative språk på JVM-en. (scala, groovy, clojure)</li>
+                            <li>Holdt på med Scala i ca 3 år og synes det er et veldig spennende språk.</li>
+                            <li>Lært utrolig mye om programmering og ikke minst funksjonell programmering gjennom Scala</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>SCALA</h2>
                     <p><em>A modern, statically typed, object-functional programming language on the JVM</em></p>
                     <img src="images/scala_button.jpg" alt="Scala">
+                    <aside class="notes">
+                        <ul>
+                            <li>Ble oppfunnet i 2001 av Martin Odersky sammen med teamet hans på EPFL-universitet i Lausanne i Sveits</li>
+                            <li>Martin Odersky skrev referansekompilatoren til Java og er mannen bak generics i Java</li>
+                            <li>SCAlable LAnguage -> Alt fra commandonlinje REPL (som i ruby), via scripts til full blow enterprise-løsninger</li>
+                            <li>Er også et hint om at Scala er god på concurrency (samtidighet), både innebygd og gjennom Akka.</li>
+                            <li>Hybrid objektorientert og funksjonelt språk: Det beste fra to verdener</li>
+                            <li>Kompilerer til samme JVM bytekode som Java</li>
+                            <li>Avansert statisk typesjekker med type inference - typesjekking gjøres compile time</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Why Scala?</h2>
+                    <aside class="notes">
+                        <ul>
+                            <li>Hvorfor bruke Scala</li>
+                            <li>Hva er det som gjør Scala så bra?</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Elegant concise syntax</h2>
                     <pre class="fragment"><code class="scala" contenteditable>  case class Person(name: String, age: Int)</code></pre>
-                    <pre class="fragment"><code class="scala" contenteditable>  val person = Person("Frode", 33)
+                    <pre class="fragment"><code class="scala" contenteditable>  val person = new Person("Frode", 33)
   person.name
 
   //res0: String = Frode</code></pre>
@@ -77,6 +103,25 @@
   young map (_.name)
 
   //res1: List[String] = List(Bob, Alice)</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>Sytaxen i Scala gir samme uttrykkskraft som dynamiske språk som Ruby</li>
+                            <li>Men med type safety i tillegg!</li>
+                            <li>====</li>
+                            <li>La oss se på hvordan man definerer en klasse</li>
+                            <li>Klassen, medlemsvariabler og default constructor kan man angi på samme linje</li>
+                            <li>Slenger man på case foran får man også equals, hashcode, accessor metoder (men ikke setter)(immutable)</li>
+                            <li>Typen kommer etter variabelnavn i Scala - fordi man ofte kan utelate den</li>
+                            <li>====</li>
+                            <li>Vi instansierer et objekt på samme måte som i Java</li>
+                            <li>val betyr en immutable variabel. Samme som final i Java. Trenger ikke type, men kunne skrevet person: Person</li>
+                            <li>Metoder uten parameter kan kalles uten parantes: person.name</li>
+                            <li>====</li>
+                            <li>Mange typer har constructormetoder - slipper å kalle new. case classes får det automatisk.</li>
+                            <li>filter - map - ny liste som oppfyller funksjonen</li>
+                            <li>Fleksibel syntax: kan bruke space i stedet for dot</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -87,11 +132,21 @@
                         <li>Comparable to Java</li>
                         <li>... or even better</li>
                     </ul>
+                    <aside class="notes">
+                        <ul>
+                            <li>Siden Scala er kompilert og typesjekking skjer compile time => optimalisert bytekode => bra performance</li>
+                            <li>Mye raskere enn de dynamiske JVM-språkene jruby, groovy, clojure, jython</li>
+                            <li>JIT compileren til JVM vil ytterligerer forbedre ytelsen runtime</li>
+                            <li>Tradeoff mellom kompakt og konsis syntax og ytelse</li>
+                            <li>Vil alltid kunne skrive like effektiv scalakode som java - ikke alltid like pent</li>
+                            <li>Ofte vil Scala være raskere</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Object Oriented</h2>
-                    <pre><code class="scala">  trait Programming {
+                    <pre class="fragment"><code class="scala">  trait Programming {
     def makeSoftware(spec: String): Software = ...
   }
 
@@ -102,6 +157,19 @@
   abstract class Employee
 
   class Developer extends Employee with Consulting with Programming</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>Jeg vil påstå at idealet i Scala er funksjonell programmering</li>
+                            <li>Men med støtte for OO for bedre encapsulation og modularisering</li>
+                            <li>I tillegg gjør OO-støtten det enklere for de som kommer fra ikke-funksjonelle språk</li>
+                            <li>Collections bibliotekene er gode eksempler på blandingen av objektorientering og funksjonelt</li>
+                            <li>====</li>
+                            <li>Traits er scalas svar på interface i java</li>
+                            <li>Traits kan derimot også inneholde implementasjon</li>
+                            <li>Kan extende så mange man vil uten problemene med multiple inheritance</li>
+                            <li>Cross cutting concerns kan legges i traits of brukes som mixins der det trengs</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -122,6 +190,17 @@
 
   //res1: List[Int] = List(2, 4, 6, 8)</code></pre>
                     </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>Scala er et fullblods funksjonelt programmeringsspråk, men ikke pure-functional</li>
+                            <li>Strict by default, men støtter også non-strict eller lazy - ikke som Haskell</li>
+                            <li>Det er mulig å ha referential transparency, men håndheves ikke som i Haskell</li>
+                            <li>====</li>
+                            <li>Første bud er at Scala støtter funksjoner som first class citisens</li>
+                            <li>Støtter både anonyme funksjoner og lexical closures</li>
+                            <li>fold tar inn en funksjon som tar 2 int som argument</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -199,6 +278,9 @@
                     <a class="image" href="http://stackoverflow.com/" target="_blank">
                         <img height="100" src="images/stackoverflow.png" alt="stackoverflow.com">
                     </a>
+                    <a class="image" href="http://www.meetup.com/scalabin/" target="_blank">
+                        <img height="100" src="images/meetup.jpg" alt="meetup.com/scalabin">
+                    </a>
                 </section>
 
                 <section>
@@ -223,12 +305,22 @@
                 </section>
 
                 <section>
-                    <p style="font-size: 1.5em;">"<strong>Basically</strong>, it's the future"</p>
+                    <p style="font-size: 1.5em;"><q cite="http://twitter.com/al3x"><strong>Basically</strong>, it's the future</q></p>
                     <p><a href="http://twitter.com/al3x">@al3x</a></p>
                 </section>
 
                 <section>
                     <img src="images/demotime.jpg" alt="demo">
+                    <p style="float:left; margin-left: 31px;"><small>Source: Mike Rohde</small></p>
+                </section>
+
+                <section>
+                    <p>
+                        Takk for meg!
+                    </p>
+                    <a class="image" href="http://bekk.no" target="_blank">
+                        <img src="images/bekk-logo-small.png" alt="Bekk">
+                    </a>
                 </section>
 
                 <section>

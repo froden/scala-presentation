@@ -52,7 +52,9 @@
                     </a>
                     <aside class="notes">
                         <ul>
-                            <li>Velkommen! Hyggelig at dere hadde lyst til å komme og høre om Scala</li>
+                            <li>Hei og Velkommen! Hyggelig at jeg fikk komme og snakke litt om Scala for dere.</li>
+                            <li>Jeg håper det er greit at jeg snakker på norsk og at dere forstår hva jeg sier.</li>
+                            <li>Stopp meg gjerne og still spørsmål underveis hvis noe er uklart.</li>
                             <li>Frode Nerbråten, jobbet i Bekk i snart 8 år</li>
                             <li>Fagleder for Scala og JVM, som er Bekks kompetansegruppe for alternative språk på JVM-en. (scala, groovy, clojure)</li>
                             <li>Holdt på med Scala i ca 3 år og synes det er et veldig spennende språk.</li>
@@ -68,10 +70,10 @@
                     <aside class="notes">
                         <ul>
                             <li>Ble oppfunnet i 2001 av Martin Odersky sammen med teamet hans på EPFL-universitet i Lausanne i Sveits</li>
-                            <li>Martin Odersky skrev referansekompilatoren til Java og er mannen bak generics i Java</li>
-                            <li>SCAlable LAnguage -> Alt fra commandonlinje REPL (som i ruby), via scripts til full blow enterprise-løsninger</li>
-                            <li>Er også et hint om at Scala er god på concurrency (samtidighet), både innebygd og gjennom Akka.</li>
-                            <li>Hybrid objektorientert og funksjonelt språk: Det beste fra to verdener</li>
+                            <li>Martin Odersky er Professor i programmeringsspråk og er mannen bak Java-kompilatoren og Java generics</li>
+                            <li>SCAlable LAnguage -> Og skal være et språk som skalerer godt fra små script til store enterprise-løsniger</li>
+                            <li>Er også et hint om at Scala er god på concurrency (samtidighet), både innebygd og gjennom rammeverk som Akka.</li>
+                            <li>Hybrid objektorientert og funksjonelt språk og påstår å forene det beste fra to verdener</li>
                             <li>Kompilerer til samme JVM bytekode som Java</li>
                             <li>Avansert statisk typesjekker med type inference - typesjekking gjøres compile time</li>
                         </ul>
@@ -105,7 +107,7 @@
   //res1: List[String] = List(Bob, Alice)</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Sytaxen i Scala gir samme uttrykkskraft som dynamiske språk som Ruby (REPL)</li>
+                            <li>Syntaxen i Scala gir samme uttrykkskraft som man ofte forbinder med dynamiske språk som Ruby</li>
                             <li>Men med type safety i tillegg!</li>
                             <li>====</li>
                             <li>La oss se på hvordan man definerer en klasse</li>
@@ -117,7 +119,7 @@
                             <li>val betyr en immutable variabel. Samme som final i Java. Trenger ikke type, men kunne skrevet person: Person</li>
                             <li>Metoder uten parameter kan kalles uten parantes: person.name</li>
                             <li>====</li>
-                            <li>Mange typer har constructormetoder - slipper å kalle new. case classes får det automatisk.</li>
+                            <li>Liste med personer. For case classes trenger man ikke skrive new for å lage instanser.</li>
                             <li>filter - map - ny liste som oppfyller funksjonen</li>
                             <li>Fleksibel syntax: kan bruke space i stedet for dot</li>
                         </ul>
@@ -137,9 +139,9 @@
                             <li>Siden Scala er kompilert og typesjekking skjer compile time => optimalisert bytekode => bra performance</li>
                             <li>Mye raskere enn de dynamiske JVM-språkene jruby, groovy, clojure, jython</li>
                             <li>JIT compileren til JVM vil ytterligerer forbedre ytelsen runtime</li>
-                            <li>Tradeoff mellom kompakt og konsis syntax og ytelse</li>
+                            <li>Kan være tradeoff mellom kompakt og konsis syntax og ytelse</li>
                             <li>Vil alltid kunne skrive like effektiv scalakode som java - ikke alltid like pent</li>
-                            <li>Ofte vil Scala være raskere</li>
+                            <li>På noen områder er Scala raskere enn Java</li>
                         </ul>
                     </aside>
                 </section>
@@ -250,9 +252,10 @@
   //res: Option[Int] = None</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Scalas for syntax kan brukes enten til bare iterering (avansert for-loop) uten yield</li>
-                            <li>Eller som syntax sukker for monader når man bruker yield</li>
-                            <li>Dette er tilsvarende do-notation i Haskell</li>
+                            <li>Scalas for comprehensions kan brukes enten til bare iterering (avansert for-loop) uten yield</li>
+                            <li>Eller som list comprehensions med yield</li>
+                            <li>Eller for monadiske operasjoner</li>
+                            <li>Dette er tilsvarende list comprehensions og do-notation i Haskell</li>
                             <li>Option er scalas svar på Maybe monaden</li>
                             <li>Som vi ser kan kombinere to option-verdier uten å tenke på om innholdet er Some eller None</li>
                         </ul>
@@ -385,6 +388,15 @@
                 <section>
                     <img src="images/demotime.jpg" alt="demo">
                     <p style="float:left; margin-left: 31px;"><small>Source: Mike Rohde</small></p>
+                    <aside class="notes">
+                        <ul>
+                            <li>Jeg skjønner at det kan bli litt kjedelig å høre på meg stå og prate</li>
+                            <li>Så derfor tenkte jeg å kjøre en liten demo</li>
+                            <li>Jeg skal vise et eksempel på to veldig vanlige problemstillinger som kan løses elegant i Scala</li>
+                            <li>Nemlig feilhåndtering og Samtidighet (concurrency)</li>
+                            <li>Vise bruken av to monader Try til feilhåndtering og Future til concurrency</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>

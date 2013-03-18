@@ -196,7 +196,7 @@
                         <ul>
                             <li>Scala er et fullblods funksjonelt programmeringsspråk, men ikke pure-functional</li>
                             <li>Strict by default, men støtter også non-strict eller lazy evaluering</li>
-                            <li>Det er mulig å ha referential transparency, men håndheves ikke som i Haskell</li>
+                            <li>Referential transparency håndheves ikke for funksjonell kode</li>
                             <li>====</li>
                             <li>Første bud er at Scala støtter funksjoner som first class citisens</li>
                             <li>Støtter både anonyme funksjoner og lexical closures</li>
@@ -207,6 +207,7 @@
                             <li>Hva om vi bare ønsker å gange alle tallene i listen med f.eks. 2</li>
                             <li>Ikke noe problem. Vi partially applyer 2 som første argument og får en funksjon som tar 1 int som parameter</li>
                             <li>Denn kan vi så mappe over listen</li>
+                            <li>map er for øvrig det samme som fmap i Haskell</li>
                         </ul>
                     </aside>
                 </section>
@@ -235,6 +236,7 @@
                             <li>Hvis ikke er det nok en annen frode</li>
                             <li>Til slutt alle andre treff</li>
                             <li>underscore er wildcard</li>
+                            <li>Syntaksen minner litt om switch case statements i Java, men er mye mer avansert</li>
                         </ul>
                     </aside>
                 </section>
@@ -253,7 +255,7 @@
   //res: Option[Int] = None</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Scalas har noe som kalles for comprehensions som er en slags avansert for-loop</li>
+                            <li>Scala har noe som kalles for comprehensions som er en slags avansert for-loop</li>
                             <li>Den kan enten brukes til bare iterering uten yield til slutt</li>
                             <li>Eller som list comprehensions med yield</li>
                             <li>Eller for monadiske operasjoner</li>
@@ -326,7 +328,7 @@
                         <ul>
                             <li>Scala har et stort community med mange engasjerte og meget dyktige folk</li>
                             <li>Det finnes mange bra rammeverk skrevet i og for Scala. Det blir stadig flere.</li>
-                            <li>AKKA - actor framwork for concorruent systemer</li>
+                            <li>AKKA - actor framwork for concurrent systemer</li>
                             <li>Play2 - Scalas svar på Rails</li>
                             <li>Lift - Et view first basert web-rammeverk</li>
                             <li>Etter hvert meget god IDE-støtte både for IntelliJ og Eclipse</li>

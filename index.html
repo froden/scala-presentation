@@ -195,16 +195,17 @@
                     <aside class="notes">
                         <ul>
                             <li>Scala er et fullblods funksjonelt programmeringsspråk, men ikke pure-functional</li>
-                            <li>Strict by default, men støtter også non-strict eller lazy - ikke som Haskell</li>
+                            <li>Strict by default, men støtter også non-strict eller lazy evaluering</li>
                             <li>Det er mulig å ha referential transparency, men håndheves ikke som i Haskell</li>
                             <li>====</li>
                             <li>Første bud er at Scala støtter funksjoner som first class citisens</li>
                             <li>Støtter både anonyme funksjoner og lexical closures</li>
-                            <li>fold tar inn en funksjon som tar 2 int som argument</li>
+                            <li>product funksjonen tar to int-parametre</li>
+                            <li>fold tar inn en funksjon som tar 2 int som parametre</li>
                             <li>1 ganger første tallet, resultatet ganger neste tallet osv => svar 24</li>
                             <li>====</li>
                             <li>Hva om vi bare ønsker å gange alle tallene i listen med f.eks. 2</li>
-                            <li>Ikke noe problem. Vi partially applyer 2 som første argument og får en funksjon som tar 1 int som arg</li>
+                            <li>Ikke noe problem. Vi partially applyer 2 som første argument og får en funksjon som tar 1 int som parameter</li>
                             <li>Denn kan vi så mappe over listen</li>
                         </ul>
                     </aside>
@@ -252,7 +253,8 @@
   //res: Option[Int] = None</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Scalas for comprehensions kan brukes enten til bare iterering (avansert for-loop) uten yield</li>
+                            <li>Scalas har noe som kalles for comprehensions som er en slags avansert for-loop</li>
+                            <li>Den kan enten brukes til bare iterering uten yield til slutt</li>
                             <li>Eller som list comprehensions med yield</li>
                             <li>Eller for monadiske operasjoner</li>
                             <li>Dette er tilsvarende list comprehensions og do-notation i Haskell</li>
@@ -274,11 +276,12 @@
   //s: java.lang.String = Scala</code></pre>
                     <aside class="notes">
                         <ul>
+                            <li>En gangske kul ting med Scala er at det er kompatibelt med Java</li>
                             <li>Man kan bruke alle eksisterende Java-biblioteker og verktøy med Scala (Spring, Hibernate, Maven, osv..)</li>
                             <li>Man kan også skrive scalakode som kan brukes fra Javakode. Eksempler Akka og Play.</li>
                             <li>Men man må huske at ikke all Scalakode vil fungere fra Java.</li>
                             <li>For en Java virtual machine så er Scala-programmer bare vanlig bytekode</li>
-                            <li>Man kan derfor deploye sine Scala-programmer på samme Java-infrastruktur som man allerede har</li>
+                            <li>Man kan derfor deploye sine Scala-programmer på samme Java-infrastruktur som man allerede har (bra for kunder)</li>
                             <li>Scala har for eksempel ikke en egen String-type, men bruker standard Java String med en del tilleggsfunksjonalitet</li>
                         </ul>
                     </aside>
@@ -322,7 +325,7 @@
                     <aside class="notes">
                         <ul>
                             <li>Scala har et stort community med mange engasjerte og meget dyktige folk</li>
-                            <li>Det finnes mange bra rammeverk skrevet i og for Scala</li>
+                            <li>Det finnes mange bra rammeverk skrevet i og for Scala. Det blir stadig flere.</li>
                             <li>AKKA - actor framwork for concorruent systemer</li>
                             <li>Play2 - Scalas svar på Rails</li>
                             <li>Lift - Et view first basert web-rammeverk</li>

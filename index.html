@@ -169,7 +169,7 @@
                             <li>Traits er scalas svar på interface i java</li>
                             <li>Traits kan derimot også inneholde implementasjon</li>
                             <li>Kan extende så mange man vil uten problemene med multiple inheritance</li>
-                            <li>Cross cutting concerns kan legges i traits of brukes som mixins der det trengs</li>
+                            <li>Traits gjør det mulig med mixin composition som i eksemplet mitt her</li>
                         </ul>
                     </aside>
                 </section>
@@ -194,7 +194,7 @@
                     </div>
                     <aside class="notes">
                         <ul>
-                            <li>Scala er et fullblods funksjonelt programmeringsspråk, men ikke pure-functional</li>
+                            <li>Scala er et fullblods funksjonelt programmeringsspråk</li>
                             <li>Strict by default, men støtter også non-strict eller lazy evaluering</li>
                             <li>====</li>
                             <li>Første bud er at Scala støtter funksjoner som first class citisens</li>
@@ -254,13 +254,13 @@
   //res: Option[Int] = None</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>Scala har noe som kalles for comprehensions som er en slags avansert for-loop</li>
+                            <li>Scala har noe som kalles for comprehensions som er en slags avansert for-loop (sammenlignet med java)</li>
                             <li>Den kan enten brukes til bare iterering uten yield til slutt</li>
                             <li>Eller som list comprehensions med yield</li>
                             <li>Eller for monadiske operasjoner</li>
                             <li>Dette er tilsvarende list comprehensions og do-notation i Haskell</li>
                             <li>Option er scalas svar på Maybe monaden</li>
-                            <li>Som vi ser kan kombinere to option-verdier uten å tenke på om innholdet er Some eller None</li>
+                            <li>Med for-comprehensions kan vi jobbe med monadiske verdier på en imperativ og lesbar måte</li>
                         </ul>
                     </aside>
                 </section>
@@ -283,7 +283,7 @@
                             <li>Men man må huske at ikke all Scalakode vil fungere fra Java.</li>
                             <li>For en Java virtual machine så er Scala-programmer bare vanlig bytekode</li>
                             <li>Man kan derfor deploye sine Scala-programmer på samme Java-infrastruktur som man allerede har (bra for kunder)</li>
-                            <li>Scala har for eksempel ikke en egen String-type, men bruker standard Java String med en del tilleggsfunksjonalitet</li>
+                            <li>Scala bruker noen av de samme standardbibliotekene som Java, men ofte med litt ekstra funksjonalitet</li>
                         </ul>
                     </aside>
                 </section>
@@ -398,7 +398,7 @@
                             <li>Så derfor tenkte jeg å kjøre en liten demo</li>
                             <li>Jeg skal vise et eksempel på to veldig vanlige problemstillinger som kan løses elegant i Scala</li>
                             <li>Nemlig feilhåndtering og Samtidighet (concurrency)</li>
-                            <li>Vise bruken av to monader Try til feilhåndtering og Future til concurrency</li>
+                            <li>Vise bruken av to nyttige monads: Try til feilhåndtering og Future til concurrency</li>
                         </ul>
                     </aside>
                 </section>

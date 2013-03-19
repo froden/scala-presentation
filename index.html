@@ -38,6 +38,13 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
+                <section>
+                    <a class="image" href="http://www.bekk.no/" target="_blank">
+                        <img src="images/bekk-logo-stor.png" alt="BEKK">
+                    </a>
+                    <p><a href="http://www.bekk.no/">www.bekk.no</a></p>
+                </section>
+
 				<section>
 					<h1>Scala > Java</h1>
                     <h3>Introduction to Scala</h3>
@@ -94,17 +101,13 @@
                     <h2>Elegant concise syntax</h2>
                     <pre class="fragment"><code class="scala" contenteditable>  case class Person(name: String, age: Int)</code></pre>
                     <pre class="fragment"><code class="scala" contenteditable>  val person = new Person("Frode", 33)
-  person.name
 
-  //res0: String = Frode</code></pre>
-                    <pre class="fragment"><code class="scala" contenteditable>  val people = List(Person("Frode", 33),
-                    Person("Bob", 25),
-                    Person("Alice", 27))
-  val young = people.filter(_.age < 30)
+  person.age
+  //res0: Int = 33</code></pre>
+                    <pre class="fragment"><code class="scala" contenteditable>  def sayHi(p: Person) = "Hi there " + p.name
 
-  young map (_.name)
-
-  //res1: List[String] = List(Bob, Alice)</code></pre>
+  sayHi(person)
+  //res1: String = Hi there Frode</code></pre>
                     <aside class="notes">
                         <ul>
                             <li>Syntaxen i Scala gir samme uttrykkskraft som man ofte forbinder med dynamiske språk som Ruby</li>
@@ -117,11 +120,13 @@
                             <li>====</li>
                             <li>Vi instansierer et objekt på samme måte som i Java</li>
                             <li>val betyr en immutable variabel. Samme som final i Java. Trenger ikke type, men kunne skrevet person: Person</li>
-                            <li>Metoder uten parameter kan kalles uten parantes: person.name</li>
+                            <li>Metoder uten parameter kan kalles uten parantes: person.age</li>
                             <li>====</li>
-                            <li>Liste med personer. For case classes trenger man ikke skrive new for å lage instanser.</li>
-                            <li>filter - map - ny liste som oppfyller funksjonen</li>
-                            <li>Fleksibel syntax: kan bruke space i stedet for dot</li>
+                            <li>Vi definerer metoder med keywordet def</li>
+                            <li>Denne metoden har ett parameter, p av typen Person</li>
+                            <li>Returtypen er String, men den kan utelates. Vis alternativ</li>
+                            <li>Alt etter = er definisjonen og kan selvsagt gå over flere linjer</li>
+                            <li>Resultatet av siste expression blir returverdien</li>
                         </ul>
                     </aside>
                 </section>
